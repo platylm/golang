@@ -10,10 +10,10 @@ import (
 func Test_Hello_Func(t *testing.T) {
 	expected := "hello world"
 
-	r, _ := http.NewRequest("GET", "http://localhost:3000", nil)
+	r, _ := http.NewRequest(http.MethodGet, "/hello", nil)
 	w := httptest.NewRecorder()
 
-	hello(r, w)
+	hello(w, r)
 
 	response := w.Result()
 	body, _ := ioutil.ReadAll(response.Body)
