@@ -40,6 +40,12 @@ func HelloPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func GreetingMessage(name string) string {
+	prefix := RetrivePrefix()
+	return fmt.Sprintf("%s %s", prefix, name)
+
+}
+
+func RetrivePrefix() string {
 	db, err := sql.Open("mysql", "root@tcp(127.0.0.1:3306)/bootcamp")
 	if err != nil {
 		log.Fatal(err)
@@ -51,5 +57,5 @@ func GreetingMessage(name string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return fmt.Sprintf("%s %s", prefix, name)
+	return prefix
 }
