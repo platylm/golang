@@ -41,3 +41,13 @@ func Test_Hello_Post_Func(t *testing.T) {
 		t.Errorf("expected '%s' but got '%s'", expected, actual)
 	}
 }
+
+func Test_Greeting_Message(t *testing.T) {
+	expected := "hello world"
+
+	actual := GreetingMessage("world")
+
+	if actual != expected {
+		t.Errorf("expected %s but got %s", expected, actual)
+	}
+}
